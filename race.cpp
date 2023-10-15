@@ -88,6 +88,8 @@ void Crace::update_race_window()
                 // This is the last step, necessary for snail winner is showed      
                 system("cls");
                 cout << race_output_.str();
+                this_thread::sleep_for(chrono::milliseconds(4000));
+                system("cls");
             }
         }
     });
