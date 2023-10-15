@@ -40,6 +40,8 @@ int main()
     FirstScreen fs1;
     SecondScreen ss1;
 
+    const int NUMBER_OF_ELEMENTS = 16;
+
     while(yes_no == "Y" || yes_no == "y")
     {
         size_t number_of_snails = size_t(ss1.get_number_of_snails());
@@ -48,6 +50,8 @@ int main()
         Crandom crandom1(MIN_STEP, max_positions_per_step, MIN_TIME_UNTIL_STEP, MAX_TIME_UNTIL_STEP);
 
         Crace carrera1(crandom1, number_of_snails, SPEEDWAY_LENGTH);
+
+        PanelWinners pwin1(carrera1.get_top3()[0], carrera1.get_top3()[1], carrera1.get_top3()[2]);
 
         for(size_t aux = 0; aux<SCREEN_NUM_OF_ELEMENTS; aux++)
             cout << repeat_question[aux] << endl;

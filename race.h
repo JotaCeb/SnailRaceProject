@@ -19,6 +19,10 @@ class Crace
 		std::string str_position2_ = "POSITION 2: ";
 		std::string str_position3_ = "POSITION 3: ";
 
+		int position1_;
+		int position2_;
+		int position3_;
+
 		int snails_number_;
 		std::size_t steps_of_speedway_;
 
@@ -31,6 +35,7 @@ class Crace
 	public:
 		Crace(Crandom& crandom, int snails_number, std::size_t steps_of_speedway);
 		void update_race_window();
+		std::vector<int> get_top3();
 
 		friend int* update_position_panel(int num_snails, std::size_t position_values[20]);
 

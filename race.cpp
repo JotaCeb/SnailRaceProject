@@ -15,6 +15,8 @@ Crace::Crace(Crandom& crandom, int snails_number, size_t steps_of_speedway)
     street_ = string(steps_of_speedway_ + size_t(8), '=');
     goal_ = 0;
 
+	position1_ = position2_ = position3_ = 0;
+
     // It is supposed the 3 string of the position panel have the same length
     size_t panel_position_margin = size(str_position1_)/2;
     size_t local_panel_position = size(street_)/2 - panel_position_margin;
@@ -22,6 +24,7 @@ Crace::Crace(Crandom& crandom, int snails_number, size_t steps_of_speedway)
 
     max_positions_per_step_ = crandom.get_max_position_advance();
     
+    // Throw the snails over the speedway
     for(int i = 0; i < snails_number_; i++)
         snails_.emplace_back(new Csnail(crandom, i, steps_of_speedway_, snails_number_));
 
@@ -90,12 +93,23 @@ void Crace::update_race_window()
                 cout << race_output_.str();
                 this_thread::sleep_for(chrono::milliseconds(4000));
                 system("cls");
+                position1_ = top3[0]; position2_ = top3[1]; position3_ = top3[2];
             }
         }
     });
     
     race_updater.join();
 }
+
+vector<int> Crace::get_top3()
+{
+    vector<int> v_local;
+    v_local.push_back(position1_);
+    v_local.push_back(position2_);
+    v_local.push_back(position3_);
+    return v_local;
+}
+
 
 // Get the 1st, 2nd and 3rd positions
 int* update_position_panel(int num_snails, size_t position_values[20])
