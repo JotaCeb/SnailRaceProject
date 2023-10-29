@@ -6,9 +6,9 @@
 using namespace std;
 
 const int SCREEN_NUM_OF_ELEMENTS = 16;
-const int START_SCREEN_NUM_OF_ELEMENTS = 13;
+// const int START_SCREEN_NUM_OF_ELEMENTS = 13;
 
- std::string message_template[START_SCREEN_NUM_OF_ELEMENTS]=
+std::string message_template[SCREEN_NUM_OF_ELEMENTS]=
 {
 "----------------------------------------------------------------------",
 "|    ____                    _   _     ____                          |",
@@ -23,19 +23,21 @@ const int START_SCREEN_NUM_OF_ELEMENTS = 13;
 "|                                                                    |",
 "|                                                                    |",
 "|                                                                    |",
+"|                                                                    |",
+"|                                                                    |",
 "----------------------------------------------------------------------"};
 
- std::string repeat_question[1]=
+ std::string repeat_question=
 {
-"|                       Repeat(R) the race                           |",};
+"|                         Repeat(R) the race                         |"};
 
- std::string start_question[1]=
+ std::string start_question=
 {
-"|                       Start(S) a new game                          |",};
+"|                         Start(S) a new game                        |"};
 
- std::string exit_question[1]=
+ std::string exit_question=
 {
-"|                          Exit(S) the game                          |",};
+"|                          Exit(S) the game                          |"};
 
 
 int main()
@@ -67,7 +69,14 @@ int main()
 
         for(size_t aux = 0; aux<SCREEN_NUM_OF_ELEMENTS; aux++)
         {
-            cout << repeat_question[aux] << endl;
+            if(aux == 8)
+                cout << repeat_question << endl;
+            else if(aux == 9)
+                cout << start_question << endl;
+            else if(aux == 10)
+                cout << exit_question << endl;
+            else
+                cout << message_template[aux] << endl;
         }
 
         std::cin >> input_key;
