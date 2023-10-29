@@ -50,6 +50,7 @@ void Csnail::save_str_position()
     basic_move_x_ = string(position_, ' ');
     
     // Current snail with its current advances (' ')
+    // Top part of the snail
     snail_running << basic_move_x_ + " ---   ";
     
     // The next 4 lines are only for to show correctly the ext. ASCII char º
@@ -59,8 +60,21 @@ void Csnail::save_str_position()
     cout.clear();
     
     snail_running << endl << basic_move_x_ 
-    << "/ " << to_string(participant_number_) << " " 
-    << "\\ /" << endl << basic_move_x_ << "-----'";
+    << "/ " << to_string(participant_number_) << " " ;
+
+    // This is for the snail wake
+    if(position_ > 2 && (int(position_) % 2 == 0))
+    {
+        basic_move_x_.pop_back();basic_move_x_.pop_back();basic_move_x_.pop_back();
+        snail_running << "\\ /" << endl << basic_move_x_ << ".. -----'";
+    }
+    else if(position_ > 1)
+    {
+        basic_move_x_.pop_back();basic_move_x_.pop_back();
+        snail_running << "\\ /" << endl << basic_move_x_ << ". -----'";
+    }
+    else
+        snail_running << "\\ /" << endl << basic_move_x_ << "-----'";
 
     if(position_ > maximum_advances_)
     {
