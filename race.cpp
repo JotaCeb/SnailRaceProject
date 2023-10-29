@@ -31,12 +31,12 @@ Crace::Crace(Crandom& crandom, int snails_number, size_t steps_of_speedway)
     local_panel_position < 1 ? panel_position_ = "" : panel_position_ = string(size_t(local_panel_position), ' ');
 
     max_positions_per_step_ = crandom.get_max_position_advance();
+
+    countdown();
     
     // Throw the snails over the speedway
     for(int i = 0; i < snails_number_; i++)
         snails_.emplace_back(new Csnail(crandom, i, steps_of_speedway_, snails_number_));
-
-    countdown();
 
     update_race_window();
 }
@@ -46,15 +46,15 @@ void Crace::countdown()
     system("cls");
 
     cout << big_number3_.str();
-    this_thread::sleep_for(chrono::milliseconds(1500));
+    this_thread::sleep_for(chrono::milliseconds(3000));
     system("cls");
 
     cout << big_number2_.str();
-    this_thread::sleep_for(chrono::milliseconds(1500));
+    this_thread::sleep_for(chrono::milliseconds(3000));
     system("cls");
 
     cout << big_number1_.str();
-    this_thread::sleep_for(chrono::milliseconds(1500));
+    this_thread::sleep_for(chrono::milliseconds(3000));
     system("cls");
 }
 
