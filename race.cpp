@@ -46,15 +46,15 @@ void Crace::countdown()
     system("cls");
 
     cout << big_number3_.str();
-    this_thread::sleep_for(chrono::milliseconds(3000));
+    this_thread::sleep_for(chrono::milliseconds(1500));
     system("cls");
 
     cout << big_number2_.str();
-    this_thread::sleep_for(chrono::milliseconds(3000));
+    this_thread::sleep_for(chrono::milliseconds(1500));
     system("cls");
 
     cout << big_number1_.str();
-    this_thread::sleep_for(chrono::milliseconds(3000));
+    this_thread::sleep_for(chrono::milliseconds(1500));
     system("cls");
 }
 
