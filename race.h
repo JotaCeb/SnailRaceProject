@@ -1,6 +1,7 @@
 #if !defined(_RACE_H_)
 #define _RACE_H_
 
+#include <sstream>
 #include <string>
 #include <vector>
 #include <memory>
@@ -91,6 +92,8 @@ class Crace
 		"|                                                                    |",
 		"|                                                                    |",
 		"----------------------------------------------------------------------"};
+
+	    std::ostringstream big_number1_, big_number2_, big_number3_;
 	
     	std::ostringstream race_output_;
 
@@ -111,6 +114,8 @@ class Crace
 
 		std::size_t goal_;
 		std::size_t max_positions_per_step_;
+
+		void countdown();
 
 	public:
 		Crace(Crandom& crandom, int snails_number, std::size_t steps_of_speedway);

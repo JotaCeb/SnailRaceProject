@@ -11,6 +11,14 @@ using namespace std;
 Crace::Crace(Crandom& crandom, int snails_number, size_t steps_of_speedway) 
 : snails_number_(snails_number), steps_of_speedway_(steps_of_speedway)
 {
+    // Big numbers for countdown creation
+    for(int i = 0; i < SCREEN_NUM_OF_ELEMENTS; i++)
+    {
+        big_number1_ << countdown_1[i] << endl;
+        big_number2_ << countdown_2[i] << endl;
+        big_number3_ << countdown_3[i] << endl;
+    }
+    
     // Lenght of snail is added to the length of the street (8)
     street_ = string(steps_of_speedway_ + size_t(8), '=');
     goal_ = 0;
@@ -28,7 +36,26 @@ Crace::Crace(Crandom& crandom, int snails_number, size_t steps_of_speedway)
     for(int i = 0; i < snails_number_; i++)
         snails_.emplace_back(new Csnail(crandom, i, steps_of_speedway_, snails_number_));
 
+    countdown();
+
     update_race_window();
+}
+
+void Crace::countdown()
+{
+    system("cls");
+
+    cout << big_number3_.str();
+    this_thread::sleep_for(chrono::milliseconds(1500));
+    system("cls");
+
+    cout << big_number2_.str();
+    this_thread::sleep_for(chrono::milliseconds(1500));
+    system("cls");
+
+    cout << big_number1_.str();
+    this_thread::sleep_for(chrono::milliseconds(1500));
+    system("cls");
 }
 
 void Crace::update_race_window()
