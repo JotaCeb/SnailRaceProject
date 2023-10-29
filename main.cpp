@@ -56,7 +56,7 @@ int main()
 
     const int NUMBER_OF_ELEMENTS = 16;
 
-    while(input_key == "Y" || input_key == "y")
+    while(!(input_key != "E" ^ input_key != "e"))
     {
         size_t number_of_snails = size_t(ss1.get_number_of_snails());
         size_t max_positions_per_step = size_t(ss1.get_max_positions_per_step());
