@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <string>
 #include "race.h"
 #include "random.h"
 #include "gui.h"
@@ -8,7 +9,7 @@ using namespace std;
 
 const int SCREEN_NUM_OF_ELEMENTS = 16;
 
-std::string message_template[SCREEN_NUM_OF_ELEMENTS]=
+string message_template[SCREEN_NUM_OF_ELEMENTS]=
 {
 "----------------------------------------------------------------------",
 "|    ____                    _   _     ____                          |",
@@ -27,15 +28,15 @@ std::string message_template[SCREEN_NUM_OF_ELEMENTS]=
 "|                                                                    |",
 "----------------------------------------------------------------------"};
 
- std::string repeat_question=
+ string repeat_question=
 {
 "|                         Repeat(R) the race                         |"};
 
- std::string start_question=
+ string start_question=
 {
 "|                         Start(S) a new game                        |"};
 
- std::string exit_question=
+ string exit_question=
 {
 "|                         Exit(E) the game                           |"};
 
@@ -87,9 +88,9 @@ int main()
                 cout << message_template[aux] << endl;
         }
         
-        std::cin >> input_key;
-        std::cin.clear();
-        std::cin.sync();
+        cin >> input_key;
+        cin.clear();
+        cin.sync();
     }
 
 	return 0;
